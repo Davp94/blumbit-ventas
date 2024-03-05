@@ -24,4 +24,5 @@ public class ProdAlmacenEntity {
     public Date createdDate;
 
     public Integer user_id;
+
 }
