@@ -1,11 +1,15 @@
 package com.blumbit.demo.persistence.entities;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Date;
 import java.util.List;
 
 @Entity
+@Getter
+@Setter
 public class CategoriaEntity {
 
     @Id

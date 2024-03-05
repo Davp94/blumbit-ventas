@@ -27,6 +27,7 @@ public class CategoriaController {
 
     @GetMapping("/categorias")
     List<CategoriaEntity> getCategorias(){
+
         return categoriaRepository.findAll();
     }
 }
