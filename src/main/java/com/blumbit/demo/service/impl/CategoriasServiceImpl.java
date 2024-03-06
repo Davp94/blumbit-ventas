@@ -3,10 +3,12 @@ package com.blumbit.demo.service.impl;
 import com.blumbit.demo.persistence.entities.CategoriaEntity;
 import com.blumbit.demo.persistence.repository.CategoriaRepository;
 import com.blumbit.demo.service.spec.ICategoriasService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class CategoriasServiceImpl implements ICategoriasService {
 
     private final CategoriaRepository categoriaRepository;

@@ -2,32 +2,38 @@ package com.blumbit.demo.controller;
 
 import com.blumbit.demo.persistence.entities.CategoriaEntity;
 import com.blumbit.demo.persistence.repository.CategoriaRepository;
+import com.blumbit.demo.service.spec.ICategoriasService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 public class CategoriaController {
 
-   // @Autowired
-   // private CategoriaRepository categoriaRepository;
+    private final ICategoriasService iCategoriasService;
 
-    private final CategoriaRepository categoriaRepository;
-
-    public CategoriaController(CategoriaRepository categoriaRepository) {
-        this.categoriaRepository = categoriaRepository;
+    public CategoriaController(ICategoriasService iCategoriasService) {
+        this.iCategoriasService = iCategoriasService;
     }
-
-    //@GetMapping("/")
-    //String helloWorld(){
-      //  return "Hola mundo";
-   // }
 
     @GetMapping("/categorias")
     List<CategoriaEntity> getCategorias(){
+        return iCategoriasService.getAllCategoria();
+    }
 
-        return categoriaRepository.findAll();
+    @PostMapping("/categorias")
+    CategoriaEntity createCategorias(@RequestBody CategoriaEntity categoriaEntity ){
+        return iCategoriasService.createCategoria(categoriaEntity);
+    }
+
+    @PutMapping("/categorias/{categoriaId}")
+    CategoriaEntity updateCategorias(@PathVariable("categoriaId") Integer id, @RequestBody CategoriaEntity categoriaEntity ){
+        return iCategoriasService.updateCategoria(id, categoriaEntity);
+    }
+
+    @DeleteMapping("/categorias/{categoriaId}")
+    void deleteCategorias(@PathVariable("categoriaId") Integer id ){
+        iCategoriasService.deleteOneById(id);
     }
 }

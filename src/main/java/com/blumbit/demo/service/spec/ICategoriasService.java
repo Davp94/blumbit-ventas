@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Optional;
 
 public interface ICategoriasService {
-
     CategoriaEntity createCategoria(CategoriaEntity categoriaEntity);
 
     CategoriaEntity updateCategoria(Integer idCategoria, CategoriaEntity categoriaEntity);
