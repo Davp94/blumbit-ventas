@@ -1,9 +1,6 @@
 package com.blumbit.demo.persistence.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
@@ -11,6 +8,7 @@ import java.util.Date;
 public class ProdAlmacenEntity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     public Integer id_producto_almacen;
 
     @ManyToOne

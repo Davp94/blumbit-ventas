@@ -28,6 +28,7 @@ public class CategoriasServiceImpl implements ICategoriasService {
     @Override
     public CategoriaEntity updateCategoria(Integer idCategoria, CategoriaEntity categoriaEntity) {
         Optional<CategoriaEntity> findCategoriaEntity = categoriaRepository.findById(idCategoria);
+
         if(findCategoriaEntity!= null){
             CategoriaEntity existCategoriaEntity = findCategoriaEntity.get();
             existCategoriaEntity.setCat_nombre(categoriaEntity.getCat_nombre());

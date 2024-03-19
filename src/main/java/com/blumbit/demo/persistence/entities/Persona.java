@@ -1,16 +1,20 @@
 package com.blumbit.demo.persistence.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Inheritance;
-import jakarta.persistence.InheritanceType;
+import jakarta.persistence.*;
 
 @Entity
-@Inheritance( strategy = InheritanceType.JOINED)
+//@Inheritance( strategy = InheritanceType.JOINED)
 public class Persona {
 
     @Id
-    public String id_persona;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    public Integer id_persona;
+
+    public String username;
+
+    public String password;
+
+    public String email;
 
     public String nombres;
 

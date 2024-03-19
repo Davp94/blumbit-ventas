@@ -7,9 +7,4 @@ import org.springframework.data.repository.ListCrudRepository;
 
 public interface CategoriaRepository extends ListCrudRepository<CategoriaEntity, Integer> {
 
-    //TODO sql native
-
-    // Consultas hql jpql
-
-    //Query Methods
 }

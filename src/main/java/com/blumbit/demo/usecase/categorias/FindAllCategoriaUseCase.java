@@ -1,5 +1,6 @@
-package com.blumbit.demo.usecase;
+package com.blumbit.demo.usecase.categorias;
 
+import com.blumbit.demo.common.UseCase;
 import com.blumbit.demo.dto.request.CategoriaRequestDto;
 import com.blumbit.demo.persistence.entities.CategoriaEntity;
 import com.blumbit.demo.service.impl.CategoriasServiceImpl;
@@ -9,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
-@Service
+@UseCase
 public class FindAllCategoriaUseCase {
 
     private final ICategoriasService iCategoriasService;

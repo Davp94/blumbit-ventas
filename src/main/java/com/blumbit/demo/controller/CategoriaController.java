@@ -2,10 +2,8 @@ package com.blumbit.demo.controller;
 
 import com.blumbit.demo.dto.request.CategoriaRequestDto;
 import com.blumbit.demo.persistence.entities.CategoriaEntity;
-import com.blumbit.demo.persistence.repository.CategoriaRepository;
 import com.blumbit.demo.service.spec.ICategoriasService;
-import com.blumbit.demo.usecase.FindAllCategoriaUseCase;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.blumbit.demo.usecase.categorias.FindAllCategoriaUseCase;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

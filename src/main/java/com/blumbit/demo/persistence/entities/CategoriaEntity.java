@@ -13,10 +13,7 @@ import java.util.List;
 public class CategoriaEntity {
 
     @Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY) // autoincremental 1,2 ,3 , ....
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)  //use sequence database
-//    @GeneratedValue(strategy = GenerationType.TABLE, generator = "table-generator")
-//    @TableGenerator(name = "table-generator", table = "productos", pkColumnName = "id_producto")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     public Integer id_categoria;
 
     public String cat_nombre;
