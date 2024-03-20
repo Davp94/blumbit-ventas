@@ -10,7 +10,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "http://localhost:4200", methods = {RequestMethod.POST, RequestMethod.GET})
 public class CategoriaController {
 
     private final FindAllCategoriaUseCase findAllCategoriaUseCase;

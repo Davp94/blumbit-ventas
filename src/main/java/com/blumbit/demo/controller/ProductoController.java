@@ -3,6 +3,7 @@ package com.blumbit.demo.controller;
 import com.blumbit.demo.dto.request.UpdateProductosRequestDto;
 import com.blumbit.demo.dto.response.UpdateProductoResponseDto;
 import com.blumbit.demo.usecase.productos.UpdateProductoUseCase;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,7 +20,7 @@ public class ProductoController {
     }
 
     @PutMapping("/productos/{productoId}")
-    UpdateProductoResponseDto updateProductos(@PathVariable("productoId") Integer id, @RequestBody UpdateProductosRequestDto productosRequestDto ){
+    UpdateProductoResponseDto updateProductos(@PathVariable("productoId") Integer id, @RequestBody @Valid UpdateProductosRequestDto productosRequestDto ){
         return updateProductoUseCase.execute(id, productosRequestDto);
     }
 }

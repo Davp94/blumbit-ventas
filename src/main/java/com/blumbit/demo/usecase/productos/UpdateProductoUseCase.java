@@ -26,14 +26,20 @@ public class UpdateProductoUseCase {
 
     public UpdateProductoResponseDto execute(Integer idProducto, UpdateProductosRequestDto updateProductosRequestDto){
         ProductoEntity productoEntity = productosService.getOneById(idProducto).orElse(null);
-        if(productoEntity != null){
-            CategoriaEntity categoriaEntity = categoriasService.getOneById(updateProductosRequestDto.categoriaId).orElse(null);
-            productoEntity.setNombre(updateProductosRequestDto.getNombre());
-            productoEntity.setCodigo(updateProductosRequestDto.getCodigo());
-            productoEntity.setCategoriaEntity(categoriaEntity);
+        if(validation(updateProductosRequestDto)){
+            if(productoEntity != null){
+                CategoriaEntity categoriaEntity = categoriasService.getOneById(updateProductosRequestDto.categoriaId).orElse(null);
+                productoEntity.setNombre(updateProductosRequestDto.getNombre());
+                productoEntity.setCodigo(updateProductosRequestDto.getCodigo());
+                productoEntity.setCategoriaEntity(categoriaEntity);
+            }
+            productoEntity = productosService.updateproducto(idProducto, productoEntity);
+            return buildProductoResponse(productoEntity);
+        }else {
+            //TODO CALL EXCEPTION
+            return null;
         }
-        productoEntity = productosService.updateproducto(idProducto, productoEntity);
-        return buildProductoResponse(productoEntity);
+
     }
 
     private UpdateProductoResponseDto buildProductoResponse(ProductoEntity productoEntity){
@@ -44,5 +50,17 @@ public class UpdateProductoUseCase {
         updateProductoResponseDto.setCategoriaId(productoEntity.getCategoriaEntity().getId_categoria());
         updateProductoResponseDto.setFecha_vencimiento(productoEntity.getFechaVencimiento());
         return updateProductoResponseDto;
+    }
+
+    private boolean validation(UpdateProductosRequestDto updateProductosRequestDto){
+
+        try {
+            Integer cod_categoria = updateProductosRequestDto.getCategoriaId();
+            CategoriaEntity categoriaEntity = categoriasService.getOneById(updateProductosRequestDto.categoriaId).orElse(null);
+            return true;
+        }catch (NullPointerException e){
+
+        }
+        return false;
     }
 }
