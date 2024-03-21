@@ -1,7 +1,11 @@
 package com.blumbit.demo.persistence.entities;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 @Entity
 //@Inheritance( strategy = InheritanceType.JOINED)
 public class Persona {
@@ -15,6 +19,8 @@ public class Persona {
     public String password;
 
     public String email;
+
+    public boolean locked;
 
     public String nombres;
 
