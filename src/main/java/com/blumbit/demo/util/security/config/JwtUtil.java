@@ -16,7 +16,6 @@ public class JwtUtil {
                 .withSubject(username)
                 .withIssuer("blumbit_ventas")
                 .withIssuedAt(new Date())
-                .withExpiresAt(new Date())
                 .sign(ALGORITHM);
     }
 
