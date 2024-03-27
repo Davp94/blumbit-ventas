@@ -3,10 +3,12 @@ package com.blumbit.demo.service.impl;
 import com.blumbit.demo.persistence.entities.ProdAlmacenEntity;
 import com.blumbit.demo.persistence.repository.ProdAlmacenRepository;
 import com.blumbit.demo.service.spec.IProductosAlmacenService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class ProductosAlmacenImpl implements IProductosAlmacenService {
 
     private final ProdAlmacenRepository prodAlmacenRepository;
