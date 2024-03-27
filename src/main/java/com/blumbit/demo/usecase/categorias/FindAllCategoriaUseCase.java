@@ -36,12 +36,15 @@ public class FindAllCategoriaUseCase {
     private List<CategoriaRequestDto> buildCategoria(List<CategoriaEntity> categorias){
         List<CategoriaRequestDto> categoriasDto = new ArrayList<>();
         CategoriaRequestDto categoriaRequestDto = new CategoriaRequestDto();
-        for (int i = 0; i< categorias.size(); i++){
-            categoriaRequestDto.id_categoria = categorias.get(i).id_categoria;
-            categoriaRequestDto.setCat_nombre(categorias.get(i).cat_nombre);
-            categoriaRequestDto.setCat_descripcion(categorias.get(i).cat_descripcion);
-            categoriaRequestDto.setCat_estado(categorias.get(i).cat_estado);
+        for (CategoriaEntity categoria : categorias) {
+            System.out.println("CATEGORIA" + categoria);
+            categoriaRequestDto.setId_categoria(categoria.getId_categoria());
+            categoriaRequestDto.setCat_nombre(categoria.getCat_nombre());
+            categoriaRequestDto.setCat_descripcion(categoria.getCat_descripcion());
+            categoriaRequestDto.setCat_estado(categoria.getCat_estado());
+            System.out.println("CATEGORIA REQUEST"+ categoriaRequestDto);
             categoriasDto.add(categoriaRequestDto);
+            categoriaRequestDto = null;
         }
         return categoriasDto;
     }

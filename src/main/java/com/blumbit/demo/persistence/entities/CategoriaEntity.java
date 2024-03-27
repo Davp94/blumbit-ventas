@@ -22,9 +22,9 @@ public class CategoriaEntity {
 
     public Short cat_estado;
 
-    @OneToMany
+/*    @OneToMany
     @JoinColumn(name = "id_producto")
-    public List<ProductoEntity> productoEntityList;
+    public List<ProductoEntity> productoEntityList;*/
 
     //DATOS AUDITORIA
 
